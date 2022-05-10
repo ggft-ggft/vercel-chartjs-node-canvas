@@ -4,7 +4,12 @@ import generatoreService from "../mbres/utils/utils";
 
 module.exports = async (req, res) => {
     //res.status(200).json({ name: 'John Doe' })
+
+    if (req.method !== 'POST') {
+        return res.status(500).json({ error: 'NOT ALLOWED' })
+    }
     const payload = req.body;
+    
     fabric.nodeCanvas.registerFont('./fonts/NotoSansJP-Black.otf', {
         family: 'NotoSansJP-Black'
     });
@@ -29,8 +34,40 @@ module.exports = async (req, res) => {
 
     var canvas = new fabric.StaticCanvas(null, { width: canvasDimensions.canvasWidth, height: canvasDimensions.canvasHeight });
 
-    var stream = canvas.createPNGStream();
+    try {
+        generatoreService.generateBackground(payload.tipologie, canvas, payload.tipologie);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ errore: "generate bottom" });
+    }
+    try {
+        generatoreService.generateBottom(payload.anno, canvas, payload.tipologie);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ errore: "generate bottom" });
+    }
 
+    try {
+        generatoreService.generateLogo(canvas, payload.tipologie);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ errore: "generate logo" });
+    }
+
+    try {
+        generatoreService.generateTitle(payload.titolo, canvas, payload.tipologie);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ errore: "generate title" });
+    }
+
+    canvas.renderAll();
+    var stream = canvas.createPNGStream();
+    
+    res.writeHead(200, {
+        "Content-Type": "image/png"
+    });
+    
     stream.on('data', function (chunk) {
         res.write(chunk);
     });
