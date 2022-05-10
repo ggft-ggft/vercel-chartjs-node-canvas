@@ -1,8 +1,11 @@
 {
     "version": 2,
-    "routes": [{ "src": "/.*", "dest": "/api/index" }],
+    "routes": [{ "src": "/chart", "dest": "/api/index" }, { "src": "/ciao", "dest": "/api/ciao" }],
     "functions": {
       "api/index.js": {
+        "includeFiles": "fonts/**"
+      },
+      "api/ciao.js": {
         "includeFiles": "fonts/**"
       }
     }
