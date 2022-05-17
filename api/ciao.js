@@ -9,10 +9,6 @@ module.exports = async (req, res) => {
         return res.status(500).json({ error: 'NOT ALLOWED' })
     }
     const payload = req.body;
-    
-    fabric.nodeCanvas.registerFont('./fonts/NotoSansJP-Black.otf', {
-        family: 'NotoSansJP-Black'
-    });
 
     //importazione font custom
     fabric.nodeCanvas.registerFont("./fonts/LibreBaskerville-Regular.ttf", {
@@ -31,11 +27,10 @@ module.exports = async (req, res) => {
         style: "italic",
     });
 
-
     var canvas = new fabric.StaticCanvas(null, { width: canvasDimensions.canvasWidth, height: canvasDimensions.canvasHeight });
 
     try {
-        generatoreService.generateBackground(payload.tipologie, canvas, payload.tipologie);
+        generatoreService.generateBackground(payload.tipologie, canvas);
     } catch (error) {
         console.error(error);
         res.status(500).json({ errore: "generate bottom" });

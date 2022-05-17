@@ -17,20 +17,14 @@ const tipologie = {
   "Report TV": "#003366",
   "Software & Web Companies": "#003366",
   "Report settore vinicolo": "#003366",
-
   "Studi Storici": "#333333",
   "Collana di studi R&S su settori industriali e servizi 1970-2000": "#333333",
   "Prime monografie R&S 1970-1973": "#333333",
   "Primi studi Mediobanca 1961-1978": "#333333",
-
-  TipoTipologia: "#496c7e",
-
+  "TipoTipologia": "#496c7e",
   "Archivio storico Mediobanca": "#496c7e",
-
   "Differente Tipologia": "#496c7e",
-
   "L'industria italiana": "#1f2945",
-
   "Annuario R&S": "#496c7e",
   "Dati Cumulativi di società Italiane": "#496c7e",
   "Dettaglio delle principali società italiane": "#496c7e",
@@ -38,13 +32,11 @@ const tipologie = {
   "Le principali società italiane": "#496c7e",
   "Le principali società italiane": "#496c7e",
   "Monografie R&S": "#496c7e",
-
   "Mercati finanziari": "#dddddd",
   "Focus Board e Compensi": "#dddddd",
   "Calepino dell’Azionista": "#dddddd",
   "Indici e dati relativi ad investimenti in titoli quotati": "#dddddd",
   "La Borsa italiana dal 1928": "#dddddd",
-
   "Raffronti internazionali": "#124a70",
   "Software & Web Companies": "#124a70",
   "Report TV": "#124a70",
@@ -56,7 +48,6 @@ const tipologie = {
   "Report Moda": "#124a70",
   "Report settore vinicolo": "#124a70",
   "Report Telco": "#124a70",
-
   "Ulteriore tipologia": "#496c7e",
 };
 
